@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    setlocale(LC_ALL, "Russian");   // чтобы русский текст в консоли не ломался
+    setlocale(LC_ALL, "Russian");  
 
     int N;
     cout << "Введите размер массива N: ";
@@ -13,7 +13,7 @@ int main() {
         return 1;
     }
 
-    int A[100];   // массив максимум на 100 элементов
+    int A[100];   
 
     cout << "Введите " << N << " элементов массива:" << endl;
     for (int i = 0; i < N; i++) {
@@ -21,7 +21,7 @@ int main() {
         cin >> A[i];
     }
 
-    // 1) Ищем индексы максимального и минимального элементов
+    
     int iMax = 0;
     int iMin = 0;
     for (int i = 1; i < N; i++) {
@@ -32,7 +32,7 @@ int main() {
     cout << "\nМаксимальный элемент: A[" << iMax << "] = " << A[iMax] << endl;
     cout << "Минимальный элемент:  A[" << iMin << "] = " << A[iMin] << endl;
 
-    // 2) Определяем, кто левее, а кто правее
+    
     int left, right;
     if (iMax < iMin) {
         left = iMax;
@@ -43,9 +43,9 @@ int main() {
         right = iMax;
     }
 
-    // 3) Считаем сумму отрицательных между ними
+    
     int sum = 0;
-    int count = 0;   // сколько отрицательных нашли
+    int count = 0;   
     for (int i = left + 1; i < right; i++) {
         if (A[i] < 0) {
             sum += A[i];
@@ -53,7 +53,7 @@ int main() {
         }
     }
 
-    // 4) Выводим результат
+    
     cout << "\nЭлементы между max и min (индексы " << left + 1 << ".." << right - 1 << "):" << endl;
     if (count == 0) {
         cout << "Отрицательных элементов между ними нет." << endl;
